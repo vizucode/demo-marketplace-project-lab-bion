@@ -97,15 +97,6 @@ export default function HomePage() {
       },
       {
         id: 10,
-        name: "PlayStation 5",
-        price: 7999000,
-        stock: 25,
-        category: "Gaming",
-        image:
-          "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=400&fit=crop",
-      },
-      {
-        id: 11,
         name: "The Psychology of Money",
         price: 125000,
         stock: 100,
@@ -114,7 +105,7 @@ export default function HomePage() {
           "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
       },
       {
-        id: 12,
+        id: 11,
         name: "Organic Coffee Beans 1kg",
         price: 250000,
         stock: 60,
@@ -123,7 +114,7 @@ export default function HomePage() {
           "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop",
       },
       {
-        id: 13,
+        id: 12,
         name: "Mechanical Keyboard RGB",
         price: 1299000,
         stock: 40,
