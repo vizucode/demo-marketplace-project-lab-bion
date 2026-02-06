@@ -124,15 +124,6 @@ export default function HomePage() {
       },
       {
         id: 13,
-        name: "LEGO Star Wars Set",
-        price: 1500000,
-        stock: 20,
-        category: "Toys",
-        image:
-          "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=400&fit=crop",
-      },
-      {
-        id: 14,
         name: "Mechanical Keyboard RGB",
         price: 1299000,
         stock: 40,
