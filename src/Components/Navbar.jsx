@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import logo from "../assets/ai-generated-black.png";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { getInitials } from "../helpers";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,16 +31,6 @@ export default function Navbar() {
   useEffect(() => {
     setIsOpen(false);
   }, []);
-
-  function getInitials(name) {
-    if (!name) return "";
-    const words = name.trim().split(" ");
-    if (words.length === 1) {
-      return words[0][0].toUpperCase();
-    }
-    return (words[0][0] + words[words.length - 1][0]).toUpperCase();
-  }
-
   return (
     <header>
       <div>

@@ -14,6 +14,7 @@ import CheckoutPage from "./pages/CheckoutPage.jsx";
 import CheckOrderPage from "./pages/CheckOrder.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
 
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/products" element={<ProductListPage />} />
           <Route path="/carts" element={<CartPage />} />
           <Route path="/checkouts" element={<CheckoutPage />} />
