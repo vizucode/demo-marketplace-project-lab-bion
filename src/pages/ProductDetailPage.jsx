@@ -143,10 +143,7 @@ export default function ProductDetailPage() {
         {/* Product Info Section */}
         <div className="product-info">
           <div className="product-header">
-            <div>
-              <span className="product-category">{product.category}</span>
-              <h1 className="product-name">{product.name}</h1>
-            </div>
+            <h1 className="product-name">{product.name}</h1>
             <Link to={`/products/edit/${product.id}`} className="edit-button">
               <Edit size={20} />
             </Link>
