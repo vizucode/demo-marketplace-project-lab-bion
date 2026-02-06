@@ -1,7 +1,7 @@
 // pages/HomePage.jsx
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../Components/ProductCard";
 export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [newestProducts, setNewestProducts] = useState([]);
