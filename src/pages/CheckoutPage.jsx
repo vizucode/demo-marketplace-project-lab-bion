@@ -85,7 +85,7 @@ export default function CheckoutPage() {
       setTimeout(() => {
         setFormData({
           name: "Daffa Anaqi Farid",
-          address: "Jl. Sudirman No. 123, Jakarta Pusat",
+          address: "Jl. Street No. 123, Jakarta Tengah",
           phone: "083897685406",
         });
 

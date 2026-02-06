@@ -65,7 +65,7 @@ export default function CheckOrderPage() {
           createdAt: "2025-02-06T10:30:00Z",
           customerInfo: {
             name: "Daffa Anaqi Farid",
-            address: "Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10110",
+            address: "Jl. Street No. 123, Jakarta Tengah, DKI Jakarta 010101",
             phone: "083897685406",
           },
           items: [
