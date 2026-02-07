@@ -5,7 +5,7 @@ import Input from "../Components/Input";
 import Textarea from "../Components/Textarea";
 import Checkbox from "../Components/Checkbox";
 import FileInput from "../Components/FileInput";
-
+import Select from "../Components/Select";
 export default function EditProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
