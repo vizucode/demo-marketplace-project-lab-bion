@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link, useSearchParams } from "react-router";
 import { ShoppingCart, CreditCard, ArrowLeft, Edit, Loader2, User } from "lucide-react";
 import { formatRupiah } from "../helpers";
+import { useAuth } from "../hooks/useAuth";
+import { useCart } from "../hooks/useCart";
 import api from "../lib/axios";
 import Swal from "sweetalert2";
 
@@ -10,6 +12,8 @@ export default function ProductDetailPage() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -53,25 +57,65 @@ export default function ProductDetailPage() {
   };
 
   const handleAddToCart = () => {
-    // TODO: Implement add to cart logic with API
-    console.log("Add to cart:", { productId: id, quantity });
-    Swal.fire({
-      icon: "success",
-      title: "Added to Cart",
-      text: `Added ${quantity} item(s) to cart!`,
-      timer: 1500,
-      showConfirmButton: false,
-    });
+    if (!isAuthenticated) {
+      Swal.fire({
+        icon: "warning",
+        title: "Login Required",
+        text: "Please login to add items to cart",
+        showCancelButton: true,
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+      return;
+    }
+
+    if (!product) return;
+
+    try {
+      addToCart(product, quantity);
+      Swal.fire({
+        icon: "success",
+        title: "Added to Cart",
+        text: `Added ${quantity} ${product.name} to cart!`,
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } catch (error) {
+      console.error("Add to cart error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Failed to Add",
+        text: "Failed to add item to cart",
+      });
+    }
   };
 
   const handleCheckout = () => {
-    // TODO: Implement checkout logic with API
-    console.log("Checkout:", { productId: id, quantity });
-    Swal.fire({
-      icon: "info",
-      title: "Checkout",
-      text: `Proceeding to checkout with ${quantity} item(s)`,
-    });
+    if (!isAuthenticated) {
+      Swal.fire({
+        icon: "warning",
+        title: "Login Required",
+        text: "Please login to checkout",
+        showCancelButton: true,
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+      return;
+    }
+
+    // Add to cart first, then navigate to checkout
+    if (product) {
+      addToCart(product, quantity);
+      navigate("/checkouts");
+    }
   };
 
   const handleQuantityChange = (value) => {
@@ -225,8 +269,8 @@ export default function ProductDetailPage() {
             <p>{product.description || "No description available"}</p>
           </div>
 
-          {/* Quantity Selector */}
-          {product.stock > 0 && (
+          {/* Quantity Selector - Only show when authenticated */}
+          {isAuthenticated && product.stock > 0 && (
             <div className="quantity-selector">
               <label>Quantity</label>
               <div className="quantity-controls">
@@ -255,25 +299,45 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          {/* Action Buttons */}
-          <div className="product-actions">
-            <button
-              className="btn secondary"
-              onClick={handleAddToCart}
-              disabled={product.stock === 0}
-            >
-              <ShoppingCart size={20} />
-              <span>Add to Cart</span>
-            </button>
-            <button
-              className="btn primary"
-              onClick={handleCheckout}
-              disabled={product.stock === 0}
-            >
-              <CreditCard size={20} />
-              <span>Buy Now</span>
-            </button>
-          </div>
+          {/* Action Buttons - Only show when authenticated */}
+          {isAuthenticated ? (
+            <div className="product-actions">
+              <button
+                className="btn secondary"
+                onClick={handleAddToCart}
+                disabled={product.stock === 0}
+              >
+                <ShoppingCart size={20} />
+                <span>Add to Cart</span>
+              </button>
+              <button
+                className="btn primary"
+                onClick={handleCheckout}
+                disabled={product.stock === 0}
+              >
+                <CreditCard size={20} />
+                <span>Buy Now</span>
+              </button>
+            </div>
+          ) : (
+            <div className="login-prompt" style={{
+              padding: "1.5rem",
+              backgroundColor: "var(--color-muted-light)",
+              borderRadius: "8px",
+              textAlign: "center"
+            }}>
+              <p style={{ margin: "0 0 1rem 0", color: "var(--color-foreground)" }}>
+                Please login to purchase this product
+              </p>
+              <button
+                className="btn primary"
+                onClick={() => navigate("/login")}
+                style={{ margin: "0 auto" }}
+              >
+                Login to Continue
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
