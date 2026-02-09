@@ -26,101 +26,43 @@ export default function HomePage() {
     const mockFeatured = [
       {
         id: 1,
-        name: "iPhone",
-        price: 19999000,
+        name: "Dior Sauvage EDP",
+        price: 1450000,
         image:
-          "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXBob25lfGVufDB8fDB8fHww",
-        area: "area1", // Large hero item
+          "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&auto=format&fit=crop&q=60",
+        area: "area1",
       },
       {
         id: 2,
-        name: "Samsung Galaxy S24 Ultra",
-        price: 15999000,
+        name: "Bleu de Chanel",
+        price: 1650000,
         image:
-          "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=600&fit=crop",
-        area: "area2", // Medium item
+          "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&auto=format&fit=crop&q=60",
+        area: "area2",
       },
       {
         id: 3,
-        name: "MacBook Pro M3",
-        price: 28999000,
+        name: "YSL La Nuit De L’Homme",
+        price: 1550000,
         image:
-          "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=600&fit=crop",
-        area: "area3", // Medium item
+          "https://images.unsplash.com/photo-1619994403073-2cec99c5d0c1?w=600&auto=format&fit=crop&q=60",
+        area: "area3",
       },
       {
         id: 4,
-        name: "Sony WH-1000XM5",
-        price: 4999000,
+        name: "Versace Eros",
+        price: 1200000,
         image:
-          "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=400&fit=crop",
-        area: "area4", // Small item
+          "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&auto=format&fit=crop&q=60",
+        area: "area4",
       },
       {
         id: 5,
-        name: "iPad Air M2",
-        price: 9999000,
+        name: "Paco Rabanne Invictus",
+        price: 1100000,
         image:
-          "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop",
-        area: "area5", // Small item
-      },
-    ];
-
-    // MOCK DATA untuk Newest Products
-    const mockNewest = [
-      {
-        id: 7,
-        name: "Nike Air Max 270",
-        price: 2499000,
-        stock: 50,
-        category: "Fashion",
-        image:
-          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
-      },
-      {
-        id: 8,
-        name: "Adidas Ultraboost 22",
-        price: 2899000,
-        stock: 30,
-        category: "Fashion",
-        image:
-          "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop",
-      },
-      {
-        id: 9,
-        name: "Canon EOS R6 Mark II",
-        price: 42999000,
-        stock: 15,
-        category: "Electronics",
-        image:
-          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop",
-      },
-      {
-        id: 10,
-        name: "The Psychology of Money",
-        price: 125000,
-        stock: 100,
-        category: "Books",
-        image:
-          "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
-      },
-      {
-        id: 11,
-        name: "Organic Coffee Beans 1kg",
-        price: 250000,
-        stock: 60,
-        category: "Food",
-        image:
-          "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop",
-      },
-      {
-        id: 12,
-        name: "Mechanical Keyboard RGB",
-        price: 1299000,
-        stock: 40,
-        category: "Electronics",
-        image:
-          "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&auto=format&fit=crop&q=60",
+        area: "area5",
       },
     ];
 
